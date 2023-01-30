@@ -15,4 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: |
+       aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 379351257650.dkr.ecr.us-east-1.amazonaws.com
+       docker build -t demo-repo .
+       docker tag demo-repo:latest 379351257650.dkr.ecr.us-east-1.amazonaws.com/demo-repo:latest
+       docker push 379351257650.dkr.ecr.us-east-1.amazonaws.com/demo-repo:latest
+       
