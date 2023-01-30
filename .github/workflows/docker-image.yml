@@ -26,4 +26,6 @@ jobs:
        docker build -t demo-repo .
        docker tag demo-repo:latest 379351257650.dkr.ecr.us-east-1.amazonaws.com/demo-repo:latest
        docker push 379351257650.dkr.ecr.us-east-1.amazonaws.com/demo-repo:latest
+       docker run -itd --name new-java -p 8080:8080 demo-repo:latest
+       curl localhost:8080
        
