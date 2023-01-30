@@ -14,6 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::379351257650:role/my-new-role
+        aws-region: us-east-1
     - name: Build the Docker image
       run: |
        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 379351257650.dkr.ecr.us-east-1.amazonaws.com
