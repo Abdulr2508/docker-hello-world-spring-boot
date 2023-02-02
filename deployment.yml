@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-test
+  labels:
+    app: node-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-test
+  template:
+    metadata:
+      labels:
+        app: node-test
+    spec:
+      containers:
+      - name: node-test
+        image: https://642535305379.dkr.ecr.ap-south-1.amazonaws.com/demo-repo:latest
+      resources:
+        requests:
+          cpu: 100m
+          memory: 250Mi
+        limits:
+          cpu: 100m
+          memory: 250Mi
+        ports:
+        - containerPort: 8080
