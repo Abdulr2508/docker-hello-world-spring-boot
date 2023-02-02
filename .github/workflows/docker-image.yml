@@ -22,8 +22,8 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Build the Docker image
       run: |
-       aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 379351257650.dkr.ecr.us-east-1.amazonaws.com
+       aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 642535305379.dkr.ecr.ap-south-1.amazonaws.com
        docker build -t demo-repo .
-       docker tag demo-repo:latest 379351257650.dkr.ecr.us-east-1.amazonaws.com/demo-repo:latest
-       docker push 379351257650.dkr.ecr.us-east-1.amazonaws.com/demo-repo:latest
+       docker tag demo-repo:latest 642535305379.dkr.ecr.ap-south-1.amazonaws.com/demo-repo:latest
+       docker push 642535305379.dkr.ecr.ap-south-1.amazonaws.com/demo-repo:latest
        
