@@ -28,7 +28,6 @@ jobs:
        docker push 642535305379.dkr.ecr.ap-south-1.amazonaws.com/demo-repo:latest
        aws eks --region ap-south-1 update-kubeconfig --name eks-cluster-new
        pwd
-       cd /home/ubuntu/
        kubectl apply -f deployment.yaml
        kubectl apply -f service.yaml
        kubectl get svc
